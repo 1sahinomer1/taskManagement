@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Login from "./Components/Login";
-import "./index.scss";
+import "./styles/index.scss";
 import ToDoScreen from "./Pages/ToDoScreen";
 
 function App() {

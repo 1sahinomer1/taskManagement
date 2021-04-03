@@ -2,6 +2,7 @@
 
 $box-sizing-color: #e3e4e9;
 $background-color: #ededf3;
+$color: #613bff;
 * {
   margin: 0;
   padding: 0;
@@ -37,6 +38,7 @@ body,
     flex-direction: column;
     h4 {
       margin-left: 1em;
+      color: $color;
     }
     input {
       width: 15em;
@@ -47,8 +49,8 @@ body,
       border: 1px solid #c1c4ce;
     }
     button {
-      background-color: #252f44;
-      color: #c1c4ce;
+      background-color: $color;
+      color: white;
       width: 15em;
       height: 2em;
       border-radius: 5px;
@@ -74,6 +76,7 @@ body,
         display: flex;
         align-items: center;
         h3 {
+          color: $color;
           margin-left: 1em;
         }
       }
@@ -81,6 +84,49 @@ body,
         margin-top: 1em;
         margin-left: 2em;
       }
+    }
+  }
+}
+.topBar {
+  display: flex;
+  flex-direction: column;
+  width: 10em;
+  height: 100vh;
+  background-color: #fbfcff;
+  .topTitle {
+    margin: 1em;
+    color: $color;
+  }
+  .pages {
+    margin: 1em;
+    h3 {
+      margin-bottom: 0.7em;
+      color: $color;
+    }
+    p {
+      margin-top: 0.5em;
+    }
+  }
+  .tags {
+    margin: 1em;
+    h3 {
+      margin-bottom: 0.7em;
+      color: $color;
+    }
+    p {
+      margin-top: 0.5em;
+    }
+  }
+}
+.screen {
+  display: flex;
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    .navbar {
+      background-color: #613bff;
+      height: 5em;
     }
   }
 }

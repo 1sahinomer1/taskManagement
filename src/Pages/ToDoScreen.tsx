@@ -1,3 +1,6 @@
+import Navbar from "../Components/Navbar";
+import Topbar from "../Components/Topbar";
+
 function ToDoScreen({ isLogin }: any) {
   const data: any = localStorage.getItem("inputs");
   var dataJson = JSON.parse(data);
@@ -5,8 +8,13 @@ function ToDoScreen({ isLogin }: any) {
   console.log(dataJson.name);
   console.log(dataJson.lastname);
   return (
-    <div>
-      <p>{dataJson.name}</p>
+    <div className="screen">
+      <div>
+        <Topbar />
+      </div>
+      <div className="content">
+        <Navbar />
+      </div>
     </div>
   );
 }
