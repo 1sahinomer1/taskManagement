@@ -2,6 +2,7 @@
 
 $box-sizing-color: #e3e4e9;
 $background-color: #ededf3;
+$background-color2: #fbfcff;
 $color: #613bff;
 * {
   margin: 0;
@@ -92,30 +93,107 @@ body,
   flex-direction: column;
   width: 10em;
   height: 100vh;
-  background-color: #fbfcff;
+  background-color: $background-color2;
+  font-family: "Roboto", sans-serif;
   .topTitle {
     margin: 1em;
     color: $color;
   }
   .pages {
     margin: 1em;
+    margin-top: 3em;
     h3 {
       margin-bottom: 0.7em;
       color: $color;
     }
-    p {
+    .pageTitle {
+      display: flex;
+      margin-left: 0.5em;
       margin-top: 0.5em;
+
+      cursor: pointer;
+      &:hover {
+        color: $background-color2;
+        background-color: $color;
+        cursor: pointer;
+        button {
+          color: $background-color2;
+          background-color: $color;
+        }
+        .icon {
+          color: $background-color2;
+          background-color: $color;
+        }
+      }
+      button {
+        margin-left: 0.75em;
+        margin-top: 0.5em;
+        background-color: $background-color2;
+        outline: none;
+        border: none;
+        font-family: "Roboto", sans-serif;
+        cursor: pointer;
+        font-size: 1em;
+      }
+      p {
+        margin-left: 0.75em;
+        margin-top: 0.5em;
+      }
+      .icon {
+        margin-top: 0.6em;
+        color: $color;
+      }
     }
   }
   .tags {
     margin: 1em;
+    margin-top: 3em;
     h3 {
       margin-bottom: 0.7em;
       color: $color;
     }
-    p {
+    .pageTitle {
+      display: flex;
+      margin-left: 0.5em;
       margin-top: 0.5em;
+      cursor: pointer;
+      &:hover {
+        color: $background-color2;
+        background-color: $color;
+        cursor: pointer;
+        button {
+          color: $background-color2;
+          background-color: $color;
+        }
+        .icon {
+          color: $background-color2;
+          background-color: $color;
+        }
+      }
+      button {
+        margin-left: 0.75em;
+        margin-top: 0.5em;
+        background-color: $background-color2;
+        outline: none;
+        border: none;
+        font-family: "Roboto", sans-serif;
+        cursor: pointer;
+        font-size: 1em;
+      }
+      p {
+        margin-left: 0.75em;
+        margin-top: 0.5em;
+      }
+      .icon {
+        margin-top: 0.6em;
+        color: $color;
+      }
     }
+  }
+  .github {
+    position: absolute;
+    bottom: 0;
+    margin-left: 3.5em;
   }
 }
 .screen {
@@ -127,6 +205,38 @@ body,
     .navbar {
       background-color: #613bff;
       height: 5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .leftNav {
+        margin-left: 3em;
+
+        button {
+          width: 5em;
+          height: 2em;
+          cursor: pointer;
+          font-family: "Roboto", sans-serif;
+          margin-left: 0.5em;
+          outline: none;
+          border: none;
+          background-color: $background-color;
+          &:hover {
+            background-color: #bbbbbd;
+          }
+        }
+        input {
+          width: 12em;
+          height: 2em;
+          outline: none;
+        }
+      }
+      .rightNav {
+        p {
+          font-family: "Roboto", sans-serif;
+          color: $background-color;
+          margin-right: 1em;
+        }
+      }
     }
   }
 }

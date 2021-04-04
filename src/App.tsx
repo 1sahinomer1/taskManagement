@@ -1,14 +1,21 @@
-import { useState } from "react";
-import Login from "./Components/Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./Pages/Login";
 import "./styles/index.scss";
-import ToDoScreen from "./Pages/ToDoScreen";
 
+import { Suspense } from "react";
+import ToDoScreen from "./Pages/ToDoScreen";
 function App() {
-  const [login, isLogin] = useState<boolean>(false);
   return (
-    <div className="App">
-      {login ? <ToDoScreen isLogin={isLogin} /> : <Login isLogin={isLogin} />}
-    </div>
+    <Router>
+      <div className="App">
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route path="/home" component={ToDoScreen} />
+          </Switch>
+        </Suspense>
+      </div>
+    </Router>
   );
 }
 

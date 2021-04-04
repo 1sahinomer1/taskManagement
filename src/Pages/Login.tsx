@@ -4,12 +4,16 @@ import { AiOutlineCheckSquare } from "react-icons/ai";
 import { useInput } from "../hooks/useInput";
 import { useEffect } from "react";
 import { useLocalStroage } from "../hooks/useLocalStroage";
-function Login({ isLogin }: any) {
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
+function Login() {
+  const history = useHistory();
   const onClick = () => {
     if (inputs.name.length < 3 || inputs.lastname.length < 3) {
       alert("name/lastname must be at least 3 characters");
     } else {
-      isLogin(true);
+      history.push("/home");
     }
   };
   const INITIAL_STATE = {
@@ -42,7 +46,6 @@ function Login({ isLogin }: any) {
           value={inputs.lastname}
           onChange={setInputs}
         />
-
         <button onClick={onClick}>Login</button>
       </div>
       <div className="right">

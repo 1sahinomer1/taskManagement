@@ -1,7 +1,8 @@
 import Navbar from "../Components/Navbar";
 import Topbar from "../Components/Topbar";
+import Management from "./Management";
 
-function ToDoScreen({ isLogin }: any) {
+function ToDoScreen() {
   const data: any = localStorage.getItem("inputs");
   var dataJson = JSON.parse(data);
   console.log(data);
@@ -14,6 +15,7 @@ function ToDoScreen({ isLogin }: any) {
       </div>
       <div className="content">
         <Navbar />
+        <Management />
       </div>
     </div>
   );
