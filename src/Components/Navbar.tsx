@@ -5,12 +5,13 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="leftNav">
-        <input type="text" placeholder="add task" />
-        <button>Add</button>
+        <p>{dataJson.name}'s Task Management </p>
       </div>
       <div className="rightNav">
-        <p>{dataJson.name}'s Task Management </p>
-        
+        <div className="hours">
+          <p></p>
+        </div>
+        <div className="date"></div>
       </div>
     </div>
   );

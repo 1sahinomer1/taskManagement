@@ -9,5 +9,6 @@ export const useLocalStroage = (key: any, INITIAL_VALUE: any) => {
     localStorage.setItem(key, JSON.stringify(value));
     setState(value);
   };
+
   return [state, updateStorage];
 };

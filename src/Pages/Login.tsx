@@ -4,7 +4,6 @@ import { AiOutlineCheckSquare } from "react-icons/ai";
 import { useInput } from "../hooks/useInput";
 import { useEffect } from "react";
 import { useLocalStroage } from "../hooks/useLocalStroage";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 function Login() {

@@ -210,7 +210,11 @@ body,
       justify-content: space-between;
       .leftNav {
         margin-left: 3em;
-
+        p {
+          font-family: "Roboto", sans-serif;
+          color: $background-color;
+          margin-right: 1em;
+        }
         button {
           width: 5em;
           height: 2em;
@@ -224,17 +228,60 @@ body,
             background-color: #bbbbbd;
           }
         }
-        input {
-          width: 12em;
-          height: 2em;
-          outline: none;
-        }
       }
       .rightNav {
-        p {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+.management {
+  display: flex;
+  justify-content: space-between;
+  .taskColumn {
+    width: 30%;
+    margin: 1em;
+    font-family: "Roboto", sans-serif;
+    color: $color;
+    h3 {
+      margin-bottom: 1em;
+    }
+    .taskDropCol {
+      width: 100%;
+      background-color: $background-color2;
+      padding: 1em;
+      border-radius: 1em;
+      display: flex;
+      flex-direction: column;
+      .dragTask {
+        width: 23em;
+        height: 2em;
+        margin-bottom: 1em;
+        padding: 0.5em;
+        background-color: #613bff;
+        color: white;
+        border: 1px solid $box-sizing-color;
+      }
+      .add {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &:hover > input {
+          width: 25em;
+          padding: 0 6px;
+        }
+        .icon {
+          color: $color;
+          cursor: pointer;
+          transition: 0.5s;
+        }
+        input {
+          width: 0;
+          transition: 0.5s;
+          outline: none;
+          border: none;
           font-family: "Roboto", sans-serif;
-          color: $background-color;
-          margin-right: 1em;
         }
       }
     }
