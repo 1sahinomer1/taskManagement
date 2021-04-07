@@ -13,7 +13,7 @@ function Management() {
   };
   const item2 = {
     id: v4(),
-    name: "Clean the mom",
+    name: "Watch a once upon a time in anatolia",
   };
   const DEFAULT_TODO = {
     todo: {
@@ -62,17 +62,10 @@ function Management() {
       return prev;
     });
   };
-  const removeTask = (id: any) => {
-    _.map(state, (data, key) => {
-      data.items = data.items.filter((data) => data.id !== id);
-    });
-    setState(state);
-    setStorage(state);
-  };
 
   const addItem = () => {
     if (text) {
-      setState((prev: any) => {
+      setState((prev) => {
         return {
           ...prev,
           todo: {
@@ -89,13 +82,19 @@ function Management() {
       });
       setText("");
     } else {
-      alert("can't be empty");
+      return;
     }
+  };
+  const removeTask = (id: any) => {
+    _.map(state, (data, key) => {
+      data.items = data.items.filter((data) => data.id !== id);
+    });
+    setStorage(state);
   };
 
   useEffect(() => {
     setStorage(state);
-  }, [state]);
+  }, [storage]);
 
   return (
     <div className="management">
