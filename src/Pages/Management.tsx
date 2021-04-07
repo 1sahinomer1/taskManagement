@@ -3,6 +3,7 @@ import { stateType } from "../global";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useLocalStroage } from "../hooks/useLocalStroage";
 import { IoMdAdd } from "react-icons/io";
+import { AiFillDelete } from "react-icons/ai";
 import { v4 } from "uuid";
 import _ from "lodash";
 function Management() {
@@ -30,12 +31,9 @@ function Management() {
   };
   const [storage, setStorage] = useLocalStroage("tasks", DEFAULT_TODO);
   const [state, setState] = useState<stateType>(storage);
-
   const [text, setText] = useState<string | undefined>();
 
   const handleDragEnd = ({ source, destination }) => {
-    console.log(destination);
-    console.log(source);
     if (!destination) {
       //don't do anything if the destination is null
       return;
@@ -49,10 +47,10 @@ function Management() {
     }
     //creating a copy of item before removing it from state
     const itemCopy = { ...state[source.droppableId].items[source.index] };
-    console.log(itemCopy);
+
     setState((prev) => {
       prev = { ...prev };
-      console.log(prev);
+
       //remove from previous items array
       prev[source.droppableId].items.splice(source.index, 1);
       //adding to new items array location
@@ -64,10 +62,17 @@ function Management() {
       return prev;
     });
   };
+  const removeTask = (id: any) => {
+    _.map(state, (data, key) => {
+      data.items = data.items.filter((data) => data.id !== id);
+    });
+    setState(state);
+    setStorage(state);
+  };
+
   const addItem = () => {
     if (text) {
       setState((prev: any) => {
-        console.log(prev);
         return {
           ...prev,
           todo: {
@@ -91,6 +96,7 @@ function Management() {
   useEffect(() => {
     setStorage(state);
   }, [state]);
+
   return (
     <div className="management">
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -114,28 +120,36 @@ function Management() {
                             draggableId={el.id}
                           >
                             {(provided) => (
-                              <div
-                                className="dragTask"
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                              >
-                                {el.name}
+                              <div className="drags">
+                                <div
+                                  className="dragTask"
+                                  ref={provided.innerRef}
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
+                                >
+                                  {el.name}
+                                  <AiFillDelete
+                                    className="iconDelete"
+                                    onClick={() => removeTask(el.id)}
+                                  />
+                                </div>
                               </div>
                             )}
                           </Draggable>
                         );
                       })}
                       {provided.placeholder}
-                      <div className="add">
-                        <input
-                          type="text"
-                          placeholder="add task"
-                          value={text}
-                          onChange={(e) => setText(e.target.value)}
-                        />
-                        <IoMdAdd className="icon" onClick={addItem} />
-                      </div>
+                      {key === "todo" && (
+                        <div className="add">
+                          <input
+                            type="text"
+                            placeholder="add task"
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                          />
+                          <IoMdAdd className="icon" onClick={addItem} />
+                        </div>
+                      )}
                     </div>
                   );
                 }}

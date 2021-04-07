@@ -264,13 +264,24 @@ body,
       border-radius: 1em;
       display: flex;
       flex-direction: column;
+
       .dragTask {
+        width: 100%;
         margin-bottom: 1em;
         padding: 0.5em;
         background-color: #613bff;
         color: white;
         border: 1px solid $box-sizing-color;
+        display: flex;
+        justify-content: space-between;
+
+        .iconDelete {
+          align-self: flex-end;
+          color: white;
+          cursor: pointer;
+        }
       }
+
       .add {
         display: flex;
         justify-content: space-between;
