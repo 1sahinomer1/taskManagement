@@ -31,20 +31,28 @@ function Management() {
   const [storage, setStorage] = useLocalStroage("tasks", DEFAULT_TODO);
   const [state, setState] = useState<stateType>(storage);
 
-  const handleDragEnd = ({ destination, source }) => {
+  const [text, setText] = useState<string | undefined>();
+
+  const handleDragEnd = ({ source, destination }) => {
+    console.log(destination);
+    console.log(source);
     if (!destination) {
-      return alert("ibo yavaş çok kötü düşen bak");
+      //don't do anything if the destination is null
+      return;
     }
     if (
-      destination?.index === source?.index &&
-      destination?.droppableId === source?.droppableId
+      //don't do anything if it's not moving anywhere
+      destination.index === source.index && // same index
+      destination.droppableId === source.droppableId // same place
     ) {
-      alert("");
+      return;
     }
     //creating a copy of item before removing it from state
     const itemCopy = { ...state[source.droppableId].items[source.index] };
+    console.log(itemCopy);
     setState((prev) => {
       prev = { ...prev };
+      console.log(prev);
       //remove from previous items array
       prev[source.droppableId].items.splice(source.index, 1);
       //adding to new items array location
@@ -56,6 +64,30 @@ function Management() {
       return prev;
     });
   };
+  const addItem = () => {
+    if (text) {
+      setState((prev: any) => {
+        console.log(prev);
+        return {
+          ...prev,
+          todo: {
+            title: "Todo",
+            items: [
+              {
+                id: v4(),
+                name: text,
+              },
+              ...prev.todo.items,
+            ],
+          },
+        };
+      });
+      setText("");
+    } else {
+      alert("can't be empty");
+    }
+  };
+
   useEffect(() => {
     setStorage(state);
   }, [state]);
@@ -96,10 +128,15 @@ function Management() {
                       })}
                       {provided.placeholder}
                       <div className="add">
-                        <input type="text" placeholder="add task" />
-                        <IoMdAdd className="icon" />
+                        <input
+                          type="text"
+                          placeholder="add task"
+                          value={text}
+                          onChange={(e) => setText(e.target.value)}
+                        />
+                        <IoMdAdd className="icon" onClick={addItem} />
                       </div>
-                    </div> //gives width to the box it goes^
+                    </div>
                   );
                 }}
               </Droppable>

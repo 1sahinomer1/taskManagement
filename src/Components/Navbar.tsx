@@ -1,17 +1,33 @@
+import { useState } from "react";
+
 function Navbar() {
   const data: any = localStorage.getItem("inputs");
   var dataJson = JSON.parse(data);
+  let time = new Date();
+
+  let min = time.toLocaleTimeString([], { timeStyle: "short" });
+  const [minute, setMinute] = useState<string>(min);
+
+  function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString([], { timeStyle: "short" });
+    setMinute(t);
+  }
+  setInterval(myTimer, 1000);
 
   return (
     <div className="navbar">
       <div className="leftNav">
         <p>{dataJson.name}'s Task Management </p>
       </div>
+      {}
       <div className="rightNav">
         <div className="hours">
-          <p></p>
+          <p>{minute}</p>
         </div>
-        <div className="date"></div>
+        <div className="date">
+          <p>{time.toLocaleDateString()}</p>
+        </div>
       </div>
     </div>
   );

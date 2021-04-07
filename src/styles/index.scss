@@ -232,6 +232,16 @@ body,
       .rightNav {
         display: flex;
         flex-direction: column;
+        font-family: "Roboto", sans-serif;
+        color: $background-color;
+        margin-right: 0.5em;
+        .hours {
+          font-size: 2.1em;
+        }
+        .date {
+          align-self: flex-end;
+          font-size: 0.8em;
+        }
       }
     }
   }
@@ -255,8 +265,6 @@ body,
       display: flex;
       flex-direction: column;
       .dragTask {
-        width: 23em;
-        height: 2em;
         margin-bottom: 1em;
         padding: 0.5em;
         background-color: #613bff;
