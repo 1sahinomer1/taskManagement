@@ -50,7 +50,6 @@ function Management() {
 
     setState((prev) => {
       prev = { ...prev };
-
       //remove from previous items array
       prev[source.droppableId].items.splice(source.index, 1);
       //adding to new items array location
@@ -59,27 +58,15 @@ function Management() {
         0,
         itemCopy
       );
+      setStorage(state);
       return prev;
     });
   };
 
   const addItem = () => {
     if (text) {
-      setState((prev) => {
-        return {
-          ...prev,
-          todo: {
-            title: "Todo",
-            items: [
-              {
-                id: v4(),
-                name: text,
-              },
-              ...prev.todo.items,
-            ],
-          },
-        };
-      });
+      state.todo.items.push({ id: v4(), name: text });
+      setStorage(state);
       setText("");
     } else {
       return;
@@ -91,9 +78,8 @@ function Management() {
     });
     setStorage(state);
   };
-
   useEffect(() => {
-    setStorage(state);
+    setState(state);
   }, [storage]);
 
   return (

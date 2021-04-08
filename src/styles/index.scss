@@ -110,7 +110,6 @@ body,
       display: flex;
       margin-left: 0.5em;
       margin-top: 0.5em;
-
       cursor: pointer;
       &:hover {
         color: $background-color2;
@@ -264,10 +263,10 @@ body,
       border-radius: 1em;
       display: flex;
       flex-direction: column;
-
       .dragTask {
         width: 100%;
         margin-bottom: 1em;
+        border-radius: 1em;
         padding: 0.5em;
         background-color: #613bff;
         color: white;
