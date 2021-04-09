@@ -84,8 +84,9 @@ function Management() {
     _.map(state, (data, key) => {
       data.items = data.items.filter((data) => data.id !== id);
     });
-    setStorage(state);
+    setStorage({...state});
   };
+  
   useEffect(() => {
     setState(state);
   }, [storage]);

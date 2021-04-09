@@ -2,6 +2,7 @@ export type inputType = {
     name:string;
     lastname:string;
 }
+
 export type Item={
     id:any;
     name:string;
