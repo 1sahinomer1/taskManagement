@@ -15,6 +15,7 @@ body,
 .App {
   height: 100%;
   background-color: $background-color;
+  overflow: hidden;
 }
 .login {
   position: absolute;
@@ -268,12 +269,11 @@ body,
         margin-bottom: 1em;
         border-radius: 1em;
         padding: 0.5em;
-        background-color: #613bff;
+        background-color: $color;
         color: white;
         border: 1px solid $box-sizing-color;
         display: flex;
         justify-content: space-between;
-
         .iconDelete {
           align-self: flex-end;
           color: white;

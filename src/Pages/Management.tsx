@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { stateType } from "../global";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { stateType } from "../global";
+
 import { useLocalStroage } from "../hooks/useLocalStroage";
+
 import { IoMdAdd } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
+
 import { v4 } from "uuid";
 import _ from "lodash";
+
 function Management() {
   const item = {
     id: v4(),
@@ -65,7 +69,11 @@ function Management() {
 
   const addItem = () => {
     if (text) {
-      state.todo.items.push({ id: v4(), name: text });
+      if (state.todo.items.length < 7) {
+        state.todo.items.push({ id: v4(), name: text });
+      } else {
+        alert("todo list full");
+      }
       setStorage(state);
       setText("");
     } else {
