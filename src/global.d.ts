@@ -6,7 +6,8 @@ export type inputType = {
 export type Item={
     id:any;
     name:string;
-
+    date:string;
+    hour:string;
 }
 
 export type stateType = {

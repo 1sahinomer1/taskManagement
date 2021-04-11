@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { stateType } from "../global";
-  
+
 import { useLocalStroage } from "../hooks/useLocalStroage";
 
 import { IoMdAdd } from "react-icons/io";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiFillInfoCircle } from "react-icons/ai";
 import { BsPencilSquare } from "react-icons/bs";
 
 import { v4 } from "uuid";
@@ -13,13 +13,20 @@ import _ from "lodash";
 import Modal from "../Components/Modal";
 
 function Management() {
+  let time = new Date();
+  console.log(typeof time.toLocaleDateString());
+  console.log(time.toLocaleTimeString());
   const item = {
     id: v4(),
     name: "Clean the house",
+    date: "11.04.2021",
+    hour: "09.05",
   };
   const item2 = {
     id: v4(),
-    name: "Watch a once upon a time in anatolia",
+    name: "Wash the car",
+    date: "11.04.2021",
+    hour: "22.13",
   };
   const DEFAULT_TODO = {
     todo: {
@@ -73,7 +80,12 @@ function Management() {
   const addItem = () => {
     if (text) {
       if (state.todo.items.length < 7) {
-        state.todo.items.push({ id: v4(), name: text });
+        state.todo.items.push({
+          id: v4(),
+          name: text,
+          date: time.toLocaleDateString(),
+          hour: time.toLocaleTimeString(),
+        });
       } else {
         alert("todo list full");
       }
@@ -128,8 +140,16 @@ function Management() {
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
                                 >
-                                  {el.name}
-                                  <div>
+                                  <div className="taskName">{el.name}</div>
+
+                                  <div className="icons">
+                                    <div className="tooltip">
+                                      <AiFillInfoCircle />
+                                      <span className="tooltipText">
+                                        was created {el.date} / {el.hour}
+                                      </span>
+                                    </div>
+
                                     <BsPencilSquare
                                       className="iconEdit"
                                       onClick={() => openModal(el.id)}

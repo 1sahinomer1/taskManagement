@@ -435,14 +435,50 @@ body,
         border: 1px solid $box-sizing-color;
         display: flex;
         justify-content: space-between;
-        .iconDelete {
-          align-self: flex-end;
-          color: white;
-          cursor: pointer;
-          margin-left: 0.5em;
+        .taskName {
+          margin-top: 0.5em;
         }
-        .iconEdit {
-          cursor: pointer;
+        .icons {
+          display: flex;
+          justify-content: center;
+          margin-top: 0.5em;
+          .iconDelete {
+            align-self: flex-end;
+            color: white;
+            cursor: pointer;
+            margin-left: 0.5em;
+            margin-bottom: 0.5em;
+          }
+          .iconEdit {
+            margin-left: 0.5em;
+            cursor: pointer;
+          }
+          .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            .tooltipText {
+              visibility: hidden;
+              width: 10em;
+              height: 2.8em;
+              background-color: $box-sizing-color;
+              color: $color;
+              text-align: center;
+              padding: 5px 0;
+              border-radius: 6px;
+              top: -5px;
+              right: 105%;
+              position: absolute;
+              z-index: 1;
+              font-family: "Roboto", sans-serif;
+              font-size: 0.8em;
+            }
+            &:hover {
+              .tooltipText {
+                visibility: visible;
+              }
+            }
+          }
         }
       }
 
@@ -500,6 +536,10 @@ body,
     input {
       outline: none;
       width: 15em;
+      border-radius: 0.5em;
+      border: none;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
     }
   }
   .buttonChange {
