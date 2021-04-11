@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { stateType } from "../global";
-
+  
 import { useLocalStroage } from "../hooks/useLocalStroage";
 
 import { IoMdAdd } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
+import { BsPencilSquare } from "react-icons/bs";
 
 import { v4 } from "uuid";
 import _ from "lodash";
+import Modal from "../Components/Modal";
 
 function Management() {
   const item = {
@@ -36,7 +38,8 @@ function Management() {
   const [storage, setStorage] = useLocalStroage("tasks", DEFAULT_TODO);
   const [state, setState] = useState<stateType>(storage);
   const [text, setText] = useState<string | undefined>();
-
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [temp, setTemp] = useState<string>("");
   const handleDragEnd = ({ source, destination }) => {
     if (!destination) {
       //don't do anything if the destination is null
@@ -80,13 +83,17 @@ function Management() {
       return;
     }
   };
-  const removeTask = (id: any) => {
+  const removeTask = (id: string) => {
     _.map(state, (data, key) => {
       data.items = data.items.filter((data) => data.id !== id);
     });
-    setStorage({...state});
+    setStorage({ ...state });
   };
-  
+  const openModal = (id: string) => {
+    setIsOpen(true);
+    setTemp(id);
+  };
+
   useEffect(() => {
     setState(state);
   }, [storage]);
@@ -122,10 +129,16 @@ function Management() {
                                   {...provided.dragHandleProps}
                                 >
                                   {el.name}
-                                  <AiFillDelete
-                                    className="iconDelete"
-                                    onClick={() => removeTask(el.id)}
-                                  />
+                                  <div>
+                                    <BsPencilSquare
+                                      className="iconEdit"
+                                      onClick={() => openModal(el.id)}
+                                    />
+                                    <AiFillDelete
+                                      className="iconDelete"
+                                      onClick={() => removeTask(el.id)}
+                                    />
+                                  </div>
                                 </div>
                               </div>
                             )}
@@ -151,6 +164,16 @@ function Management() {
             </div>
           );
         })}
+        {isOpen && (
+          <>
+            <Modal
+              id={temp}
+              state={state}
+              setStorage={setStorage}
+              onClose={setIsOpen}
+            ></Modal>
+          </>
+        )}
       </DragDropContext>
     </div>
   );
