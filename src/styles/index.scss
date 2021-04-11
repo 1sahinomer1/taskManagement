@@ -423,9 +423,8 @@ body,
       border-radius: 1em;
       display: flex;
       flex-direction: column;
-      max-height: 80%;
-      overflow: hidden;
-      overflow-y: scroll; 
+      max-height: 35em;
+      overflow-y: auto;
       .dragTask {
         width: 100%;
         margin-bottom: 1em;
@@ -439,6 +438,10 @@ body,
         .iconDelete {
           align-self: flex-end;
           color: white;
+          cursor: pointer;
+          margin-left: 0.5em;
+        }
+        .iconEdit {
           cursor: pointer;
         }
       }
@@ -464,6 +467,53 @@ body,
           font-family: "Roboto", sans-serif;
         }
       }
+    }
+  }
+}
+.modal {
+  position: absolute;
+  width: 20em;
+  height: 20em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $color;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid $box-sizing-color;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    .title {
+      font-family: "Roboto", sans-serif;
+      color: $box-sizing-color;
+    }
+    .modalIcon {
+      color: $box-sizing-color;
+    }
+  }
+  .inputChange {
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+    input {
+      outline: none;
+      width: 15em;
+    }
+  }
+  .buttonChange {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    button {
+      background-color: $box-sizing-color;
+      color: $color;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      width: 10em;
+      height: 2em;
     }
   }
 }
