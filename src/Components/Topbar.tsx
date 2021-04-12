@@ -5,12 +5,12 @@ function Navbar() {
   var dataJson = JSON.parse(data);
   let time = new Date();
 
-  let min = time.toLocaleTimeString([], { timeStyle: "short" });
+  let min = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   const [minute, setMinute] = useState<string>(min);
 
   function myTimer() {
     var d = new Date();
-    var t = d.toLocaleTimeString([], { timeStyle: "short" });
+    var t = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     setMinute(t);
   }
   setInterval(myTimer, 1000);
