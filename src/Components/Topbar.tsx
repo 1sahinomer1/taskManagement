@@ -3,6 +3,8 @@ import { IoFolderSharp } from "react-icons/io5";
 import { BiTask, BiStoreAlt } from "react-icons/bi";
 import { GiNewBorn } from "react-icons/gi";
 import { SiAffinitydesigner } from "react-icons/si";
+import { motion as m } from "framer-motion";
+
 function Topbar() {
   return (
     <div className="topBar">
@@ -11,39 +13,67 @@ function Topbar() {
       </div>
       <div className="pages">
         <h3>Board</h3>
-        <div className="pageTitle">
+        <m.div
+          className="pageTitle"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <IoFolderSharp className="icon" />
           <button>Folders</button>
-        </div>
-        <div className="pageTitle">
+        </m.div>
+        <m.div
+          className="pageTitle"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <AiOutlineFundProjectionScreen className="icon" />
           <button>Projects</button>
-        </div>
-        <div className="pageTitle">
+        </m.div>
+        <m.div
+          className="pageTitle"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <BiTask className="icon" />
           <button>Tasks</button>
-        </div>
+        </m.div>
       </div>
       <div className="tags">
         <h3>Tags</h3>
-        <div className="pageTitle">
+        <m.div
+          className="pageTitle"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <GiNewBorn className="icon" />
           <button>New Feature</button>
-        </div>
-        <div className="pageTitle">
+        </m.div>
+        <m.div
+          className="pageTitle"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <BiStoreAlt className="icon" />
           <button>Marketing</button>
-        </div>
-        <div className="pageTitle">
+        </m.div>
+        <m.div
+          className="pageTitle"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <SiAffinitydesigner className="icon" />
           <button>Design</button>
-        </div>
+        </m.div>
       </div>
-      <div className="github">
+      <m.div
+        className="github"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
         <a href="https://github.com/1sahinomer1">
           <AiFillGithub size={25} color={"613bff"} />
         </a>
-      </div>
+      </m.div>
     </div>
   );
 }

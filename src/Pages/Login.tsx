@@ -5,7 +5,7 @@ import { useInput } from "../hooks/useInput";
 import { useEffect } from "react";
 import { useLocalStroage } from "../hooks/useLocalStroage";
 import { useHistory } from "react-router-dom";
-
+import { motion as m } from "framer-motion";
 function Login() {
   const history = useHistory();
   const onClick = () => {
@@ -45,7 +45,13 @@ function Login() {
           value={inputs.lastname}
           onChange={setInputs}
         />
-        <button onClick={onClick}>Login</button>
+        <m.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={onClick}
+        >
+          Login
+        </m.button>
       </div>
       <div className="right">
         <div className="prop">

@@ -79,18 +79,22 @@ function Management() {
 
   const addItem = () => {
     if (text) {
-      if (state.todo.items.length < 7) {
-        state.todo.items.push({
-          id: v4(),
-          name: text,
-          date: time.toLocaleDateString(),
-          hour: time.toLocaleTimeString(),
-        });
+      if (text.length < 30) {
+        if (state.todo.items.length < 7) {
+          state.todo.items.push({
+            id: v4(),
+            name: text,
+            date: time.toLocaleDateString(),
+            hour: time.toLocaleTimeString(),
+          });
+        } else {
+          alert("todo list full");
+        }
+        setStorage(state);
+        setText("");
       } else {
-        alert("todo list full");
+        alert("task's name very long");
       }
-      setStorage(state);
-      setText("");
     } else {
       return;
     }

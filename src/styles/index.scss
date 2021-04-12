@@ -5,7 +5,7 @@
 $box-sizing-color: #e3e4e9;
 $background-color: #ededf3;
 $background-color2: #fbfcff;
-$color: #613bff;
+$color: #1c1fd3;
 
 $xxxxl: 1024px;
 $xxxl: 768px;
@@ -362,7 +362,7 @@ body,
     flex-direction: column;
     width: 100%;
     .navbar {
-      background-color: #613bff;
+      background-color: $color;
       height: 5em;
       display: flex;
       align-items: center;
