@@ -125,11 +125,11 @@ body,
         font-size: 1.2em;
       }
       @media screen and(max-width :$xxl) {
-        width: 7em;
+        width: 8em;
         font-size: 0.9em;
       }
-      @media screen and (max-width: $l), (max-width: $xl) {
-        width: 7em;
+      @media screen and (max-width: $xl), (max-width: $l), (max-width: $m) {
+        width: 8em;
         font-size: 0.7em;
       }
       @media screen and (max-width: $s) {
