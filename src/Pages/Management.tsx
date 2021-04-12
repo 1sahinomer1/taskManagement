@@ -14,8 +14,7 @@ import Modal from "../Components/Modal";
 
 function Management() {
   let time = new Date();
-  console.log(typeof time.toLocaleDateString());
-  console.log(time.toLocaleTimeString());
+
   const item = {
     id: v4(),
     name: "Clean the house",

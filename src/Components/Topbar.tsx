@@ -1,81 +1,36 @@
-import { AiFillGithub, AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { IoFolderSharp } from "react-icons/io5";
-import { BiTask, BiStoreAlt } from "react-icons/bi";
-import { GiNewBorn } from "react-icons/gi";
-import { SiAffinitydesigner } from "react-icons/si";
-import { motion as m } from "framer-motion";
+import { useState } from "react";
 
-function Topbar() {
+function Navbar() {
+  const data: any = localStorage.getItem("inputs");
+  var dataJson = JSON.parse(data);
+  let time = new Date();
+
+  let min = time.toLocaleTimeString([], { timeStyle: "short" });
+  const [minute, setMinute] = useState<string>(min);
+
+  function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString([], { timeStyle: "short" });
+    setMinute(t);
+  }
+  setInterval(myTimer, 1000);
+
   return (
-    <div className="topBar">
-      <div className="topTitle">
-        <h4>Task Management</h4>
+    <div className="topbar">
+      <div className="left">
+        <p>{dataJson.name}'s Task Management </p>
       </div>
-      <div className="pages">
-        <h3>Board</h3>
-        <m.div
-          className="pageTitle"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <IoFolderSharp className="icon" />
-          <button>Folders</button>
-        </m.div>
-        <m.div
-          className="pageTitle"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <AiOutlineFundProjectionScreen className="icon" />
-          <button>Projects</button>
-        </m.div>
-        <m.div
-          className="pageTitle"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <BiTask className="icon" />
-          <button>Tasks</button>
-        </m.div>
+
+      <div className="right">
+        <div className="hours">
+          <p>{minute}</p>
+        </div>
+        <div className="date">
+          <p>{time.toLocaleDateString()}</p>
+        </div>
       </div>
-      <div className="tags">
-        <h3>Tags</h3>
-        <m.div
-          className="pageTitle"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <GiNewBorn className="icon" />
-          <button>New Feature</button>
-        </m.div>
-        <m.div
-          className="pageTitle"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <BiStoreAlt className="icon" />
-          <button>Marketing</button>
-        </m.div>
-        <m.div
-          className="pageTitle"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <SiAffinitydesigner className="icon" />
-          <button>Design</button>
-        </m.div>
-      </div>
-      <m.div
-        className="github"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <a href="https://github.com/1sahinomer1">
-          <AiFillGithub size={25} color={"613bff"} />
-        </a>
-      </m.div>
     </div>
   );
 }
 
-export default Topbar;
+export default Navbar;

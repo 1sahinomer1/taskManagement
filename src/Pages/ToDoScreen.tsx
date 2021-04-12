@@ -1,4 +1,4 @@
-import Navbar from "../Components/Navbar";
+import Leftbar from "../Components/Leftbar";
 import Topbar from "../Components/Topbar";
 import Management from "./Management";
 
@@ -6,10 +6,10 @@ function ToDoScreen() {
   return (
     <div className="screen">
       <div>
-        <Topbar />
+        <Leftbar />
       </div>
       <div className="content">
-        <Navbar />
+        <Topbar />
         <Management />
       </div>
     </div>
