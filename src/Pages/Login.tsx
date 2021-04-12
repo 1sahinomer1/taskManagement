@@ -9,8 +9,8 @@ import { motion as m } from "framer-motion";
 function Login() {
   const history = useHistory();
   const onClick = () => {
-    if (inputs.name.length < 3 || inputs.lastname.length < 3) {
-      alert("name/lastname must be at least 3 characters");
+    if (inputs.name.length < 2 || inputs.lastname.length < 2) {
+      alert("name/lastname must be at least 2 characters");
     } else {
       history.push("/home");
     }
