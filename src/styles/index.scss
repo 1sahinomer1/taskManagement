@@ -440,7 +440,7 @@ body,
     font-family: "Roboto", sans-serif;
     color: $color;
     @media screen and (max-width: $xxl), (max-width: $xl), (max-width: $l) {
-      margin-left: 2em;
+      margin-left: 1.2em;
       width: 80%;
       overflow: auto;
     }

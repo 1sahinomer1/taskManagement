@@ -6,7 +6,7 @@ function ToDoScreen() {
   return (
     <div className="screen">
       <div>
-        <Leftbar />
+        <Leftbar /> 
       </div>
       <div className="content">
         <Topbar />
