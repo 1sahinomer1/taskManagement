@@ -1,5 +1,7 @@
 **Task Management**
 
+[Try for free](https://task-management-theta.vercel.app)
+
 This project remembers you and your tasks.
 You can create, edit and delete your to-do list.
 You can find out when you created your plans.
