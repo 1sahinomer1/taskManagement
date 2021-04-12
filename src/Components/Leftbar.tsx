@@ -23,7 +23,7 @@ function Leftbar() {
           <div className="leftTop">
             <h4>Task Management</h4>
             <div className="closeIcon">
-              <AiFillCloseCircle onClick={showSidebar} />
+              <AiFillCloseCircle onClick={showSidebar} size={20} />
             </div>
           </div>
           <div className="pages">
