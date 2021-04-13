@@ -1,6 +1,8 @@
-import { stateType } from "../global";
-import _ from "lodash";
 import { useState } from "react";
+import { stateType } from "../global";
+
+import _ from "lodash";
+
 import { AiFillCloseCircle } from "react-icons/ai";
 type modalComp = {
   id: string;
