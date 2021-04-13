@@ -551,6 +551,7 @@ body,
   display: flex;
   flex-direction: column;
   border: 3px solid $box-sizing-color;
+  border-radius: 1em;
   .header {
     display: flex;
     justify-content: space-between;
@@ -580,11 +581,13 @@ body,
     display: flex;
     justify-content: center;
     margin-top: 1em;
+
     button {
       background-color: $box-sizing-color;
       color: $color;
       outline: none;
       border: none;
+      border-radius: 1em;
       cursor: pointer;
       width: 10em;
       height: 2em;
