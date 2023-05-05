@@ -1,8 +1,5 @@
 import { useState } from "react";
-import {
-  AiFillGithub,
-  AiOutlineFundProjectionScreen,
-  AiFillCloseCircle,
+import { AiFillGithub, AiOutlineFundProjectionScreen, AiFillCloseCircle,
 } from "react-icons/ai";
 import { IoFolderSharp } from "react-icons/io5";
 import { BiTask, BiStoreAlt } from "react-icons/bi";
